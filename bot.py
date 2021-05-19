@@ -3,7 +3,6 @@ import time
 
 print("This is My twitter bot")
 
-
 CONSUMER_KEY = 'OuninXEBOtqLFGyfBt3ZMWdlB'
 CONSUMER_SECRET = 'Ry2cXdpTgj33FnVE1DHzWhu5M8213TvEtpKGaz7UYgIFG8mk5Z'
 ACCESS_KEY = '1394270441267601411-DEe02xV53C2ztrvHxghfvU9rfmnUdl'
@@ -48,7 +47,12 @@ def reply_to_tweets():
 			print('found #helloworld!')
 			print('responding back...')
 			api.update_status('@' + mention.user.screen_name + '#HelloWorld back to you!', mention.id)
+		elif '#save' in mention.full_text.lower():
+			print('found #save!')
+			print('responding back...')
+			api.update_status('@' + mention.user.screen_name + '  Save Confirmed!', mention.id)
+			api.retweet(last_seen_id)
 
 while True:
 	reply_to_tweets()
-	time.sleep(2)
+	time.sleep(15)
