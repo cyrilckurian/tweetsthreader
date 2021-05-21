@@ -14,8 +14,6 @@ api = tweepy.API(auth, wait_on_rate_limit=True)
 
 print("This is My twitter bot") 
 
-
-
 FILE_NAME = 'last_seen_id.txt'
 
 def retrieve_last_seen_id(file_name):
