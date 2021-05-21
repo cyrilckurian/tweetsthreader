@@ -1,17 +1,12 @@
 import tweepy
 import time
 
-print("This is My twitter bot")
 
-CONSUMER_KEY = 'iB4pR66EnLnu9lnJANGn3TTE4'
-CONSUMER_SECRET = 'gP17KMARYXNxIVq1gT1RCgxmzPZcIuRtan0dx150NQzezM60nX'
-ACCESS_KEY = '1261596317211668480-F6dcZeFFfxuFDNNWnvTr9lMotge25R'
-ACCESS_SECRET = 'szJaCZduFkJUEmOJQw0rw3vbRfQCFugQ9BzX0TlCnKJLP'
-
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+auth = tweepy.OAuthHandler("$CONSUMER_KEY", "$CONSUMER_SECRET")
+auth.set_access_token("$ACCESS_KEY", "$ACCESS_SECRET")
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
+print("This is My twitter bot") 
 
 FILE_NAME = 'last_seen_id.txt'
 
