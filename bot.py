@@ -3,22 +3,15 @@ import time
 
 print("This is My twitter bot")
 
-CONSUMER_KEY = 'OuninXEBOtqLFGyfBt3ZMWdlB'
-CONSUMER_SECRET = 'Ry2cXdpTgj33FnVE1DHzWhu5M8213TvEtpKGaz7UYgIFG8mk5Z'
-ACCESS_KEY = '1394270441267601411-DEe02xV53C2ztrvHxghfvU9rfmnUdl'
-ACCESS_SECRET = 'tTuU93EnNm1BqQ4sLobE508uMMA0EvhfLaboE6mQ1Mi6V'
+CONSUMER_KEY = 'iB4pR66EnLnu9lnJANGn3TTE4'
+CONSUMER_SECRET = 'gP17KMARYXNxIVq1gT1RCgxmzPZcIuRtan0dx150NQzezM60nX'
+ACCESS_KEY = '1261596317211668480-F6dcZeFFfxuFDNNWnvTr9lMotge25R'
+ACCESS_SECRET = 'szJaCZduFkJUEmOJQw0rw3vbRfQCFugQ9BzX0TlCnKJLP'
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-api = tweepy.API(auth)
+api = tweepy.API(auth, wait_on_rate_limit=True)
 
-#mentions = api.mentions_timeline()
-
-#for mention in mentions:
-#	print(str(mention.id) + ' - ' + mention.text)
-#	if '#helloworld' in mention.text.lower():
-#		print('found #helloworld!')
-#		print('responding back...')
 
 FILE_NAME = 'last_seen_id.txt'
 
@@ -39,10 +32,14 @@ def reply_to_tweets():
 	last_seen_id = retrieve_last_seen_id(FILE_NAME)
 	mentions = api.mentions_timeline(last_seen_id, tweet_mode='extended')
 
+
 	for mention in reversed(mentions):
 		print(str(mention.id) + ' - ' + mention.full_text)
 		last_seen_id = mention.id
 		store_last_seen_id(last_seen_id, FILE_NAME)
+		user = api.get_user(mention.user.screen_name)
+		recipient_id = user.id_str
+		print("ID-",recipient_id)
 		if '#helloworld' in mention.full_text.lower():
 			print('found #helloworld!')
 			print('responding back...')
@@ -52,7 +49,12 @@ def reply_to_tweets():
 			print('responding back...')
 			api.update_status('@' + mention.user.screen_name + '  Save Confirmed!', mention.id)
 			api.retweet(last_seen_id)
+			reply_id = str(mention.in_reply_to_status_id)
+			mention1 = api.get_status(reply_id)
+			ogname = "@" + mention.in_reply_to_screen_name + "\n"
+			textt = ogname  + mention1.text
+			api.send_direct_message(recipient_id, textt ,quick_reply_type= None,attachment_media_id=None)
 
 while True:
 	reply_to_tweets()
-	time.sleep(15)
+	time.sleep(2)
