@@ -44,17 +44,20 @@ def reply_to_tweets():
 			print('found #helloworld!')
 			print('responding back...')
 			api.update_status('@' + mention.user.screen_name + '#HelloWorld back to you!', mention.id)
+		elif '#retweet' in mention.full_text.lower():
+			print('found #retweet!')
+			print('responding back...')
+			api.update_status('@' + mention.user.screen_name + '  retweeted Confirmed!', mention.id)
+			api.retweet(last_seen_id)
 		elif '#save' in mention.full_text.lower():
 			print('found #save!')
 			print('responding back...')
-			api.update_status('@' + mention.user.screen_name + '  Save Confirmed!', mention.id)
-			api.retweet(last_seen_id)
 			reply_id = str(mention.in_reply_to_status_id)
 			mention1 = api.get_status(reply_id)
-			ogname = "@" + mention.in_reply_to_screen_name + "\n"
-			textt = ogname  + mention1.text
-			api.send_direct_message(recipient_id, textt ,quick_reply_type= None,attachment_media_id=None)
-
+			name = "@" + mention.in_reply_to_screen_name + "\n" + "\n"
+			text = name + mention1.text
+			api.send_direct_message(recipient_id, text , quick_reply_type=None, attachment_media_id=None)
+			api.update_status('@' + mention.user.screen_name + ' save Confirmed!', mention.id)
 while True:
 	reply_to_tweets()
-	time.sleep(2)
+	time.sleep(10)
