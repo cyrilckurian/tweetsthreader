@@ -1,12 +1,20 @@
+import os
 import tweepy
 import time
 
+key1 = os.environ['CONSUMER_KEY']
+key2 = os.environ['CONSUMER_SECRET']
+key3 = os.environ['ACCESS_KEY']
+key4 = os.environ['ACCESS_SECRET']
 
-auth = tweepy.OAuthHandler("$CONSUMER_KEY", "$CONSUMER_SECRET")
-auth.set_access_token("$ACCESS_KEY", "$ACCESS_SECRET")
+
+auth = tweepy.OAuthHandler(key1,key2)
+auth.set_access_token(key3,key4)
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
 print("This is My twitter bot") 
+
+
 
 FILE_NAME = 'last_seen_id.txt'
 
@@ -55,4 +63,6 @@ def reply_to_tweets():
 			api.update_status('@' + mention.user.screen_name + ' save Confirmed!', mention.id)
 while True:
 	reply_to_tweets()
-	time.sleep(10)
+	time.sleep(2)
+
+
