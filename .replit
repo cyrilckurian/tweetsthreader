@@ -1,2 +1,2 @@
 language = "python"
-run = ""
+run = "python bot.py"
