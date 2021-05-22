@@ -5,13 +5,13 @@ Thatbot is a Twitter bot for,
 3. Sending direct message of our favourite Twitter thread.
 ## How it Works ?
 When tagged with '#helloworld'.
-* ---replies ('#hellowworld' backs to you).
+* replies ('#hellowworld' backs to you).
 
 When tagged with '#retweet'.
-* ---retweets our tweet.
+* retweets our tweet.
 
 When tagged '#save'.
-* ---sent a direct message in the format(original_tweet_username,tweet thread).
+* sent a direct message in the format(original_tweet_username,tweet thread).
 
 ## Libraries used
 - [tweepy.py](https://www.tweepy.org) - An easy-to-use Python library for accessing the Twitter API. 
