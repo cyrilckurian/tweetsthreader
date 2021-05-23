@@ -1,6 +1,7 @@
 import os
 import tweepy
 import time
+from keep_alive import keep_alive
 
 key1 = os.environ['CONSUMER_KEY']
 key2 = os.environ['CONSUMER_SECRET']
@@ -59,8 +60,10 @@ def reply_to_tweets():
 			text = name + mention1.text
 			api.send_direct_message(recipient_id, text , quick_reply_type=None, attachment_media_id=None)
 			api.update_status('@' + mention.user.screen_name + ' save Confirmed!', mention.id)
+      
+keep_alive()      
 while True:
 	reply_to_tweets()
-	time.sleep(2)
+	time.sleep(10)
 
 
