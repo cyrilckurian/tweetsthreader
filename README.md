@@ -1,6 +1,11 @@
 ![BFH Banner](https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png)
 # Project Name
-Long Description about project. This project do that. This project is awesome...
+Thatbot is a Twitter bot for,
+
+1. Replying a text when tagged. 
+2. Retweeting our tweet when tagged.
+3. Sending direct message of our favourite Twitter thread.
+
 ## Team members
 1. [Cyril C Kurian ](https://github.com/cyrilckurian)
 2. [Jaison T Paulose](https://github.com/Go4me)
