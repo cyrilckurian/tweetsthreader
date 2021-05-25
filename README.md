@@ -20,7 +20,7 @@ BFH/recDQJpstZfUmx5R9/2021.
 - [tweepy.py](https://www.tweepy.org) - An easy-to-use Python library for accessing the Twitter API.
 ## How to configure
 * The bot is already hosted in replit
--or
+* or 
 * Run the bot.py file in any compiler
 
 ## How to Run
