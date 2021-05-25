@@ -2,18 +2,29 @@
 # Project Name
 Long Description about project. This project do that. This project is awesome...
 ## Team members
-1. Name [Embed personal github URL]
-2. Name [Embed perosnal github URL]
+1. [Cyril C Kurian ](https://github.com/cyrilckurian)
+2. [Jaison T Paulose](https://github.com/Go4me)
+3. [Aswathy S ](https://github.com/Aswathys-28)
 ## Team Id
-Team id here
+BFH/recDQJpstZfUmx5R9/2021.
 ## Link to product walkthrough
 [link to video]
 ## How it Works ?
-1. Step 1
-2. Step 2
+1. When tagged with '#helloworld'.
+* replies ('#hellowworld' backs to you).
+2. When tagged with '#retweet'.
+* retweets our tweet.
+3.When tagged '#save'.
+* sent a direct message in the format(original_tweet_username,tweet thread). 
 ## Libraries used
-Library Name - Version
+- [tweepy.py](https://www.tweepy.org) - An easy-to-use Python library for accessing the Twitter API.
 ## How to configure
-Instructions for setting up project
+* The bot is already hosted in replit
+or 
+* Run the bot.py file in any compiler
+
 ## How to Run
-Instructions for running
+Run,
+```bash
+python bot.py
+```
